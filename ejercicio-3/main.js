@@ -60,7 +60,7 @@ async function obtenerDatosAwait() {
 
     const data = await response.json();
 
-    const [tarea1, tarea2, tarea3] = data
+    const [tarea1, tarea2, tarea3] = data //USO CORCHETES PORQUE ESTO DESESTURCUTRANDO UNA LISTA
 
     console.log(tarea1)
     console.log(tarea1?.title)

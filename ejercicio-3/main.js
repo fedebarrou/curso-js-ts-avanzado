@@ -8,6 +8,8 @@ b. Utiliza la desestructuración de objetos para extraer la información de pers
 */
 
 
+/*Clase instanciada*/
+
 class Persona {
 
   constructor(nombre, edad, direccion, correo_electronico) {
@@ -23,14 +25,30 @@ class Persona {
 }
 
 const persona1 = new Persona("Fede", 35, "Lanús", "fede@mail.com");
-
 const { nombre, edad, direccion, correo_electronico } = persona1;
-
 
 console.log(nombre);
 console.log(edad);
 console.log(direccion);
 console.log(correo_electronico);
+
+
+
+
+
+/*Objeto directo*/
+
+const Persona2 = { nombre: "Federico", edad: 35, direccion: "Lanús Oeste", correo_electronico: "fedeb@mail.com" };
+
+
+const { nombre2, edad2, direccion2, correo_electronico2 } = Persona2;
+
+console.log(nombre2);
+console.log(edad2);
+console.log(direccion2);
+console.log(correo_electronico2);
+
+
 
 
 

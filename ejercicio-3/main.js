@@ -41,12 +41,15 @@ console.log(correo_electronico);
 const Persona2 = { nombre: "Federico", edad: 35, direccion: "Lanús Oeste", correo_electronico: "fedeb@mail.com" };
 
 
-const { nombre2, edad2, direccion2, correo_electronico2 } = Persona2;
+//RENOMBRO PROPIEDADES PARA EVITAR ERROR
+const {
+  nombre: nombre2,
+  edad: edad2,
+  direccion: direccion2,
+  correo_electronico: correo2,
+} = Persona2;
 
-console.log(nombre2);
-console.log(edad2);
-console.log(direccion2);
-console.log(correo_electronico2);
+console.log(nombre2, edad2, direccion2, correo2);
 
 
 
@@ -74,18 +77,28 @@ async function obtenerDatosAwait() {
   try {
 
     const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-    if (!response.ok) throw new Error(`HTTP ${response.status}`); //PARA DETECTAR QUE ErROR ES
+    if (!response.ok) throw new Error(`HTTP ${response.status}`); //PARA DETECTAR QUE ERROR ES
 
     const data = await response.json();
 
-    const [tarea1, tarea2, tarea3] = data //USO CORCHETES PORQUE ESTO DESESTURCUTRANDO UNA LISTA
+    const [tarea1, tarea2, tarea3] = data //USO CORCHETES PORQUE ESTOY DESESTURCUTRANDO UNA LISTA
+
+
+
+    const { userId, id, title, completed } = tarea1
+
+
+    console.log(userId)
 
     console.log(tarea1)
     console.log(tarea1?.title)
+
+
+
     mostrarTarea(tarea3)
 
   } catch (error) {
-    console.error("Ocurrió un error:", error.message);
+    console.error("Ocurrió un error:", error.message)
   } finally {
     console.log("Bloque finalizado");
   }
@@ -93,7 +106,6 @@ async function obtenerDatosAwait() {
 
 }
 
-//obtenerDatosAwait()
 
 
 function obtenerDatosThen() {
@@ -118,6 +130,8 @@ function obtenerDatosThen() {
 obtenerDatosThen();
 
 
+
+/* ESTE EJERICICIO NO SE SI ESTA BIEN HECHO, QUIZAS EXISTE UNA MANERA DE DESESTRUCTURAR Y TENER EN CUENTA TODAS LAS  */
 
 
 /*Aplicación de Datos de la API:

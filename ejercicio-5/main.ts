@@ -29,7 +29,7 @@ mostrarEdad(21); //--> correcto
 
 
 
-//Funcion conbinada con los type litera
+//Funcion conbinada con los type
 function mostrarEdadYColor(color: Color, edad: Edad): void {
 
   console.log(`Tiene ${edad} años y su color favorito es ${color}`);

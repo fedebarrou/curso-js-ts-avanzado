@@ -1,0 +1,112 @@
+<!--NOTA PROFESOR : Se armo los elementos draggable y el drop area como se explico en clase y en el tutorial, pero para la reprocuccion de las notas y la visual paso por mi amigo chatGPT-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secuenciador de Notas — Drag, Sonido, BPM & Historial</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+
+  <div class="board">
+    <!-- Columna izquierda: paleta -->
+    <section class="column">
+      <h2>Notas disponibles</h2>
+      <ul id="sourceList">
+        <!-- Cada nota: icono + label; draggable -->
+        <li class="note draggable" draggable="true" id="do" data-note="do">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 3v12.13A3.5 3.5 0 1 0 11 18V7h8V3H9z" />
+            </svg>
+          </span>
+          <strong>do</strong>
+        </li>
+        <li class="note draggable" draggable="true" id="re" data-note="re">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 3v12.13A3.5 3.5 0 1 0 11 18V7h8V3H9z" />
+            </svg>
+          </span>
+          <strong>re</strong>
+        </li>
+        <li class="note draggable" draggable="true" id="mi" data-note="mi">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 3v12.13A3.5 3.5 0 1 0 11 18V7h8V3H9z" />
+            </svg>
+          </span>
+          <strong>mi</strong>
+        </li>
+        <li class="note draggable" draggable="true" id="fa" data-note="fa">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 3v12.13A3.5 3.5 0 1 0 11 18V7h8V3H9z" />
+            </svg>
+          </span>
+          <strong>fa</strong>
+        </li>
+        <li class="note draggable" draggable="true" id="sol" data-note="sol">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 3v12.13A3.5 3.5 0 1 0 11 18V7h8V3H9z" />
+            </svg>
+          </span>
+          <strong>sol</strong>
+        </li>
+        <li class="note draggable" draggable="true" id="la" data-note="la">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 3v12.13A3.5 3.5 0 1 0 11 18V7h8V3H9z" />
+            </svg>
+          </span>
+          <strong>la</strong>
+        </li>
+        <li class="note draggable" draggable="true" id="si" data-note="si">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 3v12.13A3.5 3.5 0 1 0 11 18V7h8V3H9z" />
+            </svg>
+          </span>
+          <strong>si</strong>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Columna derecha: secuencia + controles -->
+    <section class="column">
+      <h2>Secuencia</h2>
+
+      <div class="controls">
+        <label for="bpm">Velocidad (BPM)</label>
+        <input id="bpm" type="range" min="40" max="240" value="120" />
+        <input id="bpmNumber" type="number" min="40" max="240" value="120" />
+        <button id="playBtn" class="btn primary">▶️ Play</button>
+        <button id="stopBtn" class="btn" disabled>⏹ Stop</button>
+      </div>
+
+      <ul class="droppable stack" id="dropArea"></ul>
+    </section>
+
+    <!-- Columna Historial -->
+    <section class="column">
+      <h2>Historial</h2>
+      <div class="history">
+        <div id="historyEmpty" class="history-empty">Todavía no soltaste ninguna nota en la secuencia.</div>
+        <div id="historyList" class="history-list" hidden></div>
+        <div style="margin-top:10px; display:flex; gap:8px; justify-content:flex-end;">
+          <button id="clearHistory" class="btn danger">🧹 Limpiar historial</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+</body>
+
+</html>
